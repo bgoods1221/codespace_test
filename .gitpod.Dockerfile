@@ -1,5 +1,3 @@
-FROM condaforge/mambaforge:latest
-
-RUN mamba env create -f environment.yml
-
-RUN mamba activate ml4t
+FROM continuumio/miniconda:latest
+COPY ./environment.yml .
+RUN conda env create -f environment.yml
