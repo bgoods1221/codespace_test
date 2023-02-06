@@ -1,6 +1,7 @@
-FROM gitpod/workspace-python-3.6:2022-06-09-20-58-43
+FROM condaforge/mambaforge:latest
 
-COPY requirements.txt .
+COPY environment.yml .
 
-RUN pip3 install --no-cache-dir --upgrade pip \
-  && pip3 install --no-cache-dir -r requirements.txt
+RUN mamba env create -f environment.yml
+
+RUN mamba activate ml4t
